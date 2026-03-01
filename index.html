@@ -2,12 +2,80 @@
 <html>
     <head>
         <title>Feedback</title>
+        <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
-        <h1>Hello, it works!</h1>
-        <picture>
+        <div class="restaurant-banner">
+            <picture>
+                <source media="(min-width: 768px)" srcset="assets/images/luna_rossa_1024.jpg">
+                <img src="assets/images/luna_rossa_390.jpg" alt="Luna Rossa Ristorante Trattoria">
+            </picture>
+            <span class="restaurant-name">Luna Rossa Ristorante Trattoria</span>
+        </div>
+
+        <h1>How did Eric do?</h1>
+        <picture class="server-avatar">
             <source media="(min-width: 768px)" srcset="assets/images/male_server_1024.jpg">
             <img src="assets/images/male_server_390.jpg" alt="Male server">
         </picture>
+
+        <form>
+            <div class="question">
+                <label>How was the speed of service?</label>
+                <div class="stars" role="radiogroup" aria-label="Speed of service">
+                    <input type="radio" id="speed-1" name="speed" value="1"><label for="speed-1">&#9733;</label>
+                    <input type="radio" id="speed-2" name="speed" value="2"><label for="speed-2">&#9733;</label>
+                    <input type="radio" id="speed-3" name="speed" value="3"><label for="speed-3">&#9733;</label>
+                    <input type="radio" id="speed-4" name="speed" value="4"><label for="speed-4">&#9733;</label>
+                    <input type="radio" id="speed-5" name="speed" value="5"><label for="speed-5">&#9733;</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>How was the taste of your food?</label>
+                <div class="stars" role="radiogroup" aria-label="Taste of food">
+                    <input type="radio" id="taste-1" name="taste" value="1"><label for="taste-1">&#9733;</label>
+                    <input type="radio" id="taste-2" name="taste" value="2"><label for="taste-2">&#9733;</label>
+                    <input type="radio" id="taste-3" name="taste" value="3"><label for="taste-3">&#9733;</label>
+                    <input type="radio" id="taste-4" name="taste" value="4"><label for="taste-4">&#9733;</label>
+                    <input type="radio" id="taste-5" name="taste" value="5"><label for="taste-5">&#9733;</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>How friendly and welcoming was Eric?</label>
+                <div class="stars" role="radiogroup" aria-label="Staff friendliness">
+                    <input type="radio" id="friendly-1" name="friendly" value="1"><label for="friendly-1">&#9733;</label>
+                    <input type="radio" id="friendly-2" name="friendly" value="2"><label for="friendly-2">&#9733;</label>
+                    <input type="radio" id="friendly-3" name="friendly" value="3"><label for="friendly-3">&#9733;</label>
+                    <input type="radio" id="friendly-4" name="friendly" value="4"><label for="friendly-4">&#9733;</label>
+                    <input type="radio" id="friendly-5" name="friendly" value="5"><label for="friendly-5">&#9733;</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>How well did Eric know the menu and answer your questions?</label>
+                <div class="stars" role="radiogroup" aria-label="Menu knowledge">
+                    <input type="radio" id="knowledge-1" name="knowledge" value="1"><label for="knowledge-1">&#9733;</label>
+                    <input type="radio" id="knowledge-2" name="knowledge" value="2"><label for="knowledge-2">&#9733;</label>
+                    <input type="radio" id="knowledge-3" name="knowledge" value="3"><label for="knowledge-3">&#9733;</label>
+                    <input type="radio" id="knowledge-4" name="knowledge" value="4"><label for="knowledge-4">&#9733;</label>
+                    <input type="radio" id="knowledge-5" name="knowledge" value="5"><label for="knowledge-5">&#9733;</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>How well did Eric check in on you during your meal?</label>
+                <div class="stars" role="radiogroup" aria-label="Staff attentiveness">
+                    <input type="radio" id="checkin-1" name="checkin" value="1"><label for="checkin-1">&#9733;</label>
+                    <input type="radio" id="checkin-2" name="checkin" value="2"><label for="checkin-2">&#9733;</label>
+                    <input type="radio" id="checkin-3" name="checkin" value="3"><label for="checkin-3">&#9733;</label>
+                    <input type="radio" id="checkin-4" name="checkin" value="4"><label for="checkin-4">&#9733;</label>
+                    <input type="radio" id="checkin-5" name="checkin" value="5"><label for="checkin-5">&#9733;</label>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
     </body>
 </html>
