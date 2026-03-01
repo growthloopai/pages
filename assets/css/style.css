@@ -5,6 +5,8 @@ body {
     max-width: 600px;
     margin: 2rem auto;
     padding: 0 1rem;
+    background: linear-gradient(160deg, #fdf6ee 0%, #faebd7 50%, #f5e6d0 100%);
+    min-height: 100vh;
 }
 
 img {
@@ -57,7 +59,11 @@ h1 {
 }
 
 .question {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .question > label {
@@ -74,21 +80,26 @@ h1 {
 /* Star labels */
 .stars label {
     font-size: 2rem;
-    color: #ccc;
+    color: #d9c9b0;
     cursor: pointer;
+    transition: color 0.15s ease, transform 0.1s ease;
+    display: inline-block;
 }
 
-/* Fill stars up to and including the selected one */
-.stars input[type="radio"]:checked ~ label {
-    color: #ccc;
+.stars label:hover {
+    transform: scale(1.15);
 }
 
-.stars input[type="radio"]:checked + label,
-.stars input[type="radio"]:checked + label ~ label {
-    color: #ccc;
+/* Hover preview: fill all stars gold, then dim those after the hovered one */
+.stars:hover label {
+    color: #f5a623;
 }
 
-/* Highlight all stars from 1 up to checked */
+.stars label:hover ~ label {
+    color: #d9c9b0 !important;
+}
+
+/* Selected state: fill stars up to checked */
 .stars:has(input:nth-of-type(1):checked) label:nth-of-type(1),
 
 .stars:has(input:nth-of-type(2):checked) label:nth-of-type(1),
@@ -107,23 +118,28 @@ h1 {
     color: #f5a623;
 }
 
-/* Hover preview */
-.stars label:hover,
-.stars label:hover ~ label {
-    color: #ccc;
-}
-
-.stars:hover label {
-    color: #f5a623;
-}
-
-.stars label:hover ~ label {
-    color: #ccc !important;
-}
-
 button[type="submit"] {
     margin-top: 1rem;
-    padding: 0.6rem 1.5rem;
+    padding: 0.7rem 2rem;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #c8843a, #a0612a);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(160, 97, 42, 0.35);
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #d4924a, #b06e32);
+    box-shadow: 0 4px 14px rgba(160, 97, 42, 0.45);
+    transform: translateY(-1px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(160, 97, 42, 0.3);
 }
