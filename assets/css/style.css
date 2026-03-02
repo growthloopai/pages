@@ -77,13 +77,24 @@ h1 {
     display: none;
 }
 
+@keyframes star-pop {
+    0%   { transform: scale(1); }
+    35%  { transform: scale(1.5); }
+    65%  { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
 /* Star labels */
 .stars label {
     font-size: 2rem;
     color: #d9c9b0;
     cursor: pointer;
-    transition: color 0.15s ease, transform 0.1s ease;
+    transition: color 0.2s ease, transform 0.1s ease;
     display: inline-block;
+}
+
+.stars input[type="radio"]:checked + label {
+    animation: star-pop 0.35s ease;
 }
 
 .stars label:hover {
@@ -118,18 +129,47 @@ h1 {
     color: #f5a623;
 }
 
-button[type="submit"] {
-    margin-top: 1rem;
-    padding: 0.7rem 2rem;
+.optional {
+    font-size: 0.85em;
+    color: #a08060;
+    font-weight: 400;
+}
+
+textarea {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.65rem 0.75rem;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    font-weight: 500;
+    color: #333;
+    border: 1.5px solid #e0d4c0;
+    border-radius: 8px;
+    resize: vertical;
+    background: #fdfaf6;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #c8843a;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.9rem 2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background: linear-gradient(135deg, #c8843a, #a0612a);
     color: #fff;
-    box-shadow: 0 2px 8px rgba(160, 97, 42, 0.35);
+    letter-spacing: 0.03em;
+    box-shadow: 0 4px 14px rgba(160, 97, 42, 0.4);
     transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
 }
 
