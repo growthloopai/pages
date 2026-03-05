@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Feedback</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body>
+        <div class="restaurant-banner">
+            <img src="assets/images/voc.png" alt="VOC Restaurant">
+            <span class="restaurant-name">VOC</span>
+        </div>
+
+        <h1>How did we do?</h1>
+
+        <!-- Step 1: Face selection -->
+        <div id="face-selection" class="face-icons">
+            <img src="assets/images/happy_green_face.jpg" alt="Happy" data-mood="happy">
+            <img src="assets/images/neutral_yellow_face.jpg" alt="Neutral" data-mood="neutral">
+            <img src="assets/images/sad_red_face.jpg" alt="Sad" data-mood="sad">
+        </div>
+
+        <!-- Step 2: Questions (shown after happy face is clicked) -->
+        <form id="questions" action="thank-you.html" style="display:none">
+            <div class="question">
+                <div class="question-img-wrap">
+                    <div class="question-img-label">
+                        <img class="question-img" src="assets/images/food.jpeg" alt="Food">
+                        <p class="question-label">Food quality</p>
+                    </div>
+                    <div class="stars" role="radiogroup" aria-label="Food rating">
+                        <input type="radio" id="food-1" name="food" value="1"><label for="food-1">&#9733;</label>
+                        <input type="radio" id="food-2" name="food" value="2"><label for="food-2">&#9733;</label>
+                        <input type="radio" id="food-3" name="food" value="3"><label for="food-3">&#9733;</label>
+                        <input type="radio" id="food-4" name="food" value="4"><label for="food-4">&#9733;</label>
+                        <input type="radio" id="food-5" name="food" value="5"><label for="food-5">&#9733;</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-img-wrap">
+                    <div class="question-img-label">
+                        <img class="question-img" src="assets/images/male_server_390.jpg" alt="Server">
+                        <p class="question-label">Service</p>
+                    </div>
+                    <div class="stars" role="radiogroup" aria-label="Server rating">
+                        <input type="radio" id="server-1" name="server" value="1"><label for="server-1">&#9733;</label>
+                        <input type="radio" id="server-2" name="server" value="2"><label for="server-2">&#9733;</label>
+                        <input type="radio" id="server-3" name="server" value="3"><label for="server-3">&#9733;</label>
+                        <input type="radio" id="server-4" name="server" value="4"><label for="server-4">&#9733;</label>
+                        <input type="radio" id="server-5" name="server" value="5"><label for="server-5">&#9733;</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <script>
+            document.getElementById('face-selection').addEventListener('click', function(e) {
+                if (e.target.dataset.mood === 'happy') {
+                    this.style.display = 'none';
+                    document.getElementById('questions').style.display = 'block';
+                }
+            });
+        </script>
+    </body>
+</html>

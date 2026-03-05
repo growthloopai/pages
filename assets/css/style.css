@@ -29,8 +29,6 @@ h1 {
 
 .restaurant-banner img {
     width: 100%;
-    height: 160px;
-    object-fit: cover;
     display: block;
 }
 
@@ -44,6 +42,51 @@ h1 {
     color: #fff;
     font-size: 0.95rem;
     font-weight: 600;
+}
+
+.face-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.face-icons img {
+    width: 64px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.face-icons img:hover {
+    transform: scale(1.15);
+}
+
+.question-img-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.question-img-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.question-label {
+    text-align: center;
+    font-weight: 600;
+    margin: 0.5rem 0 0;
+}
+
+.question-img {
+    width: 144px;
+    height: 144px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .server-avatar {
@@ -86,7 +129,7 @@ h1 {
 
 /* Star labels */
 .stars label {
-    font-size: 2rem;
+    font-size: 3rem;
     color: #d9c9b0;
     cursor: pointer;
     transition: color 0.2s ease, transform 0.1s ease;
@@ -202,7 +245,7 @@ button[type="submit"]:active {
     border-radius: 50%;
     background: linear-gradient(135deg, #c8843a, #a0612a);
     color: #fff;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 1.25rem;
     box-shadow: 0 4px 14px rgba(160, 97, 42, 0.35);
 }
