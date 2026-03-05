@@ -198,6 +198,68 @@ textarea:focus {
     border-color: #c8843a;
 }
 
+#improve h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+}
+
+.improve-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.improve-option {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.improve-option:hover {
+    box-shadow: 0 4px 14px rgba(0,0,0,0.13);
+    transform: translateY(-1px);
+}
+
+.improve-option img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.improve-option p {
+    font-weight: 600;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.improve-both-images {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.improve-plus {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #a08060;
+}
+
+.question-title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
 #google-review-btn {
     display: block;
     width: 100%;

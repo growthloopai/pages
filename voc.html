@@ -23,6 +23,74 @@
             <img src="assets/images/sad_red_face.jpg" alt="Sad" data-mood="sad">
         </div>
 
+        <!-- Step 2b: Improve (shown after neutral/sad face is clicked) -->
+        <div id="improve" style="display:none">
+            <h2>What should we improve?</h2>
+            <div class="improve-options">
+                <div class="improve-option">
+                    <img src="assets/images/food.jpeg" alt="Food">
+                    <p>Food</p>
+                </div>
+                <div class="improve-option">
+                    <img src="assets/images/male_server_390.jpg" alt="Service">
+                    <p>Service</p>
+                </div>
+                <div class="improve-option improve-option--both">
+                    <div class="improve-both-images">
+                        <img src="assets/images/food.jpeg" alt="Food">
+                        <span class="improve-plus">+</span>
+                        <img src="assets/images/male_server_390.jpg" alt="Service">
+                    </div>
+                    <p>Food &amp; Service</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2c: Improve questions (shown after an improve option is clicked) -->
+        <form id="improve-questions" action="thank-you.html" style="display:none">
+            <div id="iq-taste" class="question" style="display:none">
+                <label class="question-title">Food taste</label>
+                <div class="stars" role="radiogroup" aria-label="Food taste">
+                    <input type="radio" id="taste-1" name="taste" value="1"><label for="taste-1">&#9733;</label>
+                    <input type="radio" id="taste-2" name="taste" value="2"><label for="taste-2">&#9733;</label>
+                    <input type="radio" id="taste-3" name="taste" value="3"><label for="taste-3">&#9733;</label>
+                    <input type="radio" id="taste-4" name="taste" value="4"><label for="taste-4">&#9733;</label>
+                    <input type="radio" id="taste-5" name="taste" value="5"><label for="taste-5">&#9733;</label>
+                </div>
+            </div>
+            <div id="iq-portion" class="question" style="display:none">
+                <label class="question-title">Portion size</label>
+                <div class="stars" role="radiogroup" aria-label="Portion size">
+                    <input type="radio" id="portion-1" name="portion" value="1"><label for="portion-1">&#9733;</label>
+                    <input type="radio" id="portion-2" name="portion" value="2"><label for="portion-2">&#9733;</label>
+                    <input type="radio" id="portion-3" name="portion" value="3"><label for="portion-3">&#9733;</label>
+                    <input type="radio" id="portion-4" name="portion" value="4"><label for="portion-4">&#9733;</label>
+                    <input type="radio" id="portion-5" name="portion" value="5"><label for="portion-5">&#9733;</label>
+                </div>
+            </div>
+            <div id="iq-timely" class="question" style="display:none">
+                <label class="question-title">Timely service</label>
+                <div class="stars" role="radiogroup" aria-label="Timely service">
+                    <input type="radio" id="timely-1" name="timely" value="1"><label for="timely-1">&#9733;</label>
+                    <input type="radio" id="timely-2" name="timely" value="2"><label for="timely-2">&#9733;</label>
+                    <input type="radio" id="timely-3" name="timely" value="3"><label for="timely-3">&#9733;</label>
+                    <input type="radio" id="timely-4" name="timely" value="4"><label for="timely-4">&#9733;</label>
+                    <input type="radio" id="timely-5" name="timely" value="5"><label for="timely-5">&#9733;</label>
+                </div>
+            </div>
+            <div id="iq-hospitality" class="question" style="display:none">
+                <label class="question-title">Hospitality &amp; Knowledge</label>
+                <div class="stars" role="radiogroup" aria-label="Hospitality and Knowledge">
+                    <input type="radio" id="hosp-1" name="hospitality" value="1"><label for="hosp-1">&#9733;</label>
+                    <input type="radio" id="hosp-2" name="hospitality" value="2"><label for="hosp-2">&#9733;</label>
+                    <input type="radio" id="hosp-3" name="hospitality" value="3"><label for="hosp-3">&#9733;</label>
+                    <input type="radio" id="hosp-4" name="hospitality" value="4"><label for="hosp-4">&#9733;</label>
+                    <input type="radio" id="hosp-5" name="hospitality" value="5"><label for="hosp-5">&#9733;</label>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
         <!-- Step 2: Questions (shown after happy face is clicked) -->
         <form id="questions" action="thank-you.html" style="display:none">
             <div class="question">
@@ -72,10 +140,29 @@
             document.getElementById('questions').addEventListener('change', checkPerfectScore);
 
             document.getElementById('face-selection').addEventListener('click', function(e) {
-                if (e.target.dataset.mood === 'happy') {
-                    this.style.display = 'none';
+                const mood = e.target.dataset.mood;
+                if (!mood) return;
+                this.style.display = 'none';
+                if (mood === 'happy') {
                     document.getElementById('questions').style.display = 'block';
+                } else {
+                    document.getElementById('improve').style.display = 'block';
                 }
+            });
+
+            document.getElementById('improve').addEventListener('click', function(e) {
+                const option = e.target.closest('.improve-option');
+                if (!option) return;
+                const options = Array.from(document.querySelectorAll('.improve-option'));
+                const index = options.indexOf(option);
+                const showFood = index === 0 || index === 2;
+                const showService = index === 1 || index === 2;
+                document.getElementById('iq-taste').style.display = showFood ? 'block' : 'none';
+                document.getElementById('iq-portion').style.display = showFood ? 'block' : 'none';
+                document.getElementById('iq-timely').style.display = showService ? 'block' : 'none';
+                document.getElementById('iq-hospitality').style.display = showService ? 'block' : 'none';
+                this.style.display = 'none';
+                document.getElementById('improve-questions').style.display = 'block';
             });
         </script>
     </body>
