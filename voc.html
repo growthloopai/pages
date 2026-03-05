@@ -57,10 +57,20 @@
                 </div>
             </div>
 
+            <a id="google-review-btn" href="https://www.google.com/maps/search/?api=1&query=VOC%20Restaurant%20%26%20Espresso%20Bar&query_place_id=ChIJx5iI1llz4ToRmf4e2FmVF0g" target="_blank" style="display:none">Leave a Google review</a>
             <button type="submit">Submit</button>
         </form>
 
         <script>
+            function checkPerfectScore() {
+                const food = document.querySelector('input[name="food"]:checked');
+                const server = document.querySelector('input[name="server"]:checked');
+                const btn = document.getElementById('google-review-btn');
+                btn.style.display = (food && food.value === '5' && server && server.value === '5') ? 'block' : 'none';
+            }
+
+            document.getElementById('questions').addEventListener('change', checkPerfectScore);
+
             document.getElementById('face-selection').addEventListener('click', function(e) {
                 if (e.target.dataset.mood === 'happy') {
                     this.style.display = 'none';
